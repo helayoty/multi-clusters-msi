@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: memeber-a
+  name: memeber-a
+rules:
+- apiGroups: [""]
+  resources: ["namespace"]
+  verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: memeber-a-reader
+  namespace: memeber-a
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: 1eae4205-64ad-4f80-bd23-2be9b14a37fc
+roleRef:
+  kind: Role
+  name: member-a
+  apiGroup: rbac.authorization.k8s.io
