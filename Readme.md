@@ -8,7 +8,7 @@
   $ az aks create --resource-group demo --name memberCluster --node-count 1  --generate-ssh-keys --enable-managed-identity
 ```
 
-- Create namespace in the member cluster, aka `member-a`.
+- Create namespace in the hub cluster, aka `member-a`.
 - Create Role and RoleBinding
 
 ```sh
