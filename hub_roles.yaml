@@ -1,22 +1,25 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  namespace: memeber-a
-  name: memeber-a
+  namespace: member-a
+  name: member-a
 rules:
 - apiGroups: [""]
   resources: ["namespace"]
+  verbs: ["get", "watch", "list"]
+- apiGroups: [""] # this rule is only needed because the testing app is making changes on pods. Update this based on the targeting resources.
+  resources: ["pods"]
   verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: memeber-a-reader
-  namespace: memeber-a
+  name: member-a-reader
+  namespace: member-a
 subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: User
-    name: 1eae4205-64ad-4f80-bd23-2be9b14a37fc
+    name: <MEMBER-CLUSTER-MANAGED-IDENTITY-ID>
 roleRef:
   kind: Role
   name: member-a
