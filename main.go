@@ -15,7 +15,7 @@ import (
 	"k8s.io/client-go/rest"
 )
 
-var MEMBER_CLUSTER_CLIENT_ID = "53dfc2d4-48db-4497-a4bf-291de20b5f51"
+var MEMBER_CLUSTER_CLIENT_ID = "<MEMBER_CLUSTER_CLIENT_ID>
 
 func main() {
 
